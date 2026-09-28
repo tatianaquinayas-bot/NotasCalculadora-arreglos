@@ -30,5 +30,23 @@ public class CalculadoraDeNotas {
             e.calcularDefinitiva();
             estudiantes[i] = e;
         }
+        double notaLimite = Double.parseDouble(
+                JOptionPane.showInputDialog("Ingrese la nota límite (entre 0.0 y 4.9):")
+        );
+        
+        for (Calculadora e : estudiantes) {
+            e.desplegarSiSuperaLimite(notaLimite);
+        }
+
+        double incremento = Double.parseDouble(
+                JOptionPane.showInputDialog("Ingrese el incremento para desarrollo (entre 0.0 y 0.5):")
+        );
+
+        for (Calculadora e : estudiantes) {
+            e.incrementarNotaDesarrollo(incremento);
+            e.mostrarNota();
+        }
     }
 }
+  
+   
