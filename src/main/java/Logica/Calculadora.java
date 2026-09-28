@@ -65,4 +65,16 @@ public class Calculadora {
     public void mostrarNota(){
         JOptionPane.showMessageDialog(null, "Nombre: " + nombre +"\nCodigo: " + id + "\nNota definitiva: " + definitiva);
     }
+    public void desplegarSiSuperaLimite(double notaLimite) {
+        if (this.definitiva > notaLimite) {
+            JOptionPane.showMessageDialog(null, 
+                "Estudiante que supera el límite (" + notaLimite + "):\n" +
+                "Código: " + id + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Nota Definitiva: " + definitiva
+            );
+        }
+    }
 }
+
+
