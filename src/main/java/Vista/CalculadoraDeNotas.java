@@ -6,36 +6,29 @@ import javax.swing.JOptionPane;
 public class CalculadoraDeNotas {
 
     public static void main(String[] args) {
-
-        String nombre = JOptionPane.showInputDialog(
-                "Ingrese su Nombre"
+        // Punto 1: Ingreso del número de estudiantes
+        int cantidad = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese el número de estudiantes:")
         );
 
-        String id = JOptionPane.showInputDialog(
-                "Ingrese su ID"
-        );
+        Calculadora[] estudiantes = new Calculadora[cantidad];
 
-        double notad = Double.parseDouble(
-                JOptionPane.showInputDialog(
-                        "Digite la nota de Desarrollo"
-                )
-        );
+        for (int i = 0; i < cantidad; i++) {
+            JOptionPane.showMessageDialog(null, "Datos del estudiante #" + (i + 1));
+            String nombre = JOptionPane.showInputDialog("Ingrese su Nombre:");
+            String id = JOptionPane.showInputDialog("Ingrese su ID:");
 
-        double notam = Double.parseDouble(
-                JOptionPane.showInputDialog(
-                        "Digite la nota de Matemáticas"
-                )
-        );
+            double notad = Double.parseDouble(
+                    JOptionPane.showInputDialog("Digite la nota de Desarrollo:")
+            );
 
-        Calculadora miComparador = new Calculadora(
-                id,
-                nombre,
-                notad,
-                notam
-        );
+            double notam = Double.parseDouble(
+                    JOptionPane.showInputDialog("Digite la nota de Matemáticas:")
+            );
 
-        double definitiva = miComparador.calcularDefinitiva();
-
-        miComparador.mostrarNota();
+            Calculadora e = new Calculadora(id, nombre, notad, notam);
+            e.calcularDefinitiva();
+            estudiantes[i] = e;
+        }
     }
 }
