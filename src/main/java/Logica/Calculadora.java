@@ -75,6 +75,16 @@ public class Calculadora {
             );
         }
     }
+    public void incrementarNotaDesarrollo(double incremento) {
+        if (incremento >= 0.0 && incremento <= 0.5) {
+            if (this.notaDesarrollo + incremento <= 5.0) {
+                this.notaDesarrollo += incremento;
+            } else {
+                this.notaDesarrollo = 5.0;
+            }
+            calcularDefinitiva();
+        }
+    }
 }
 
 
